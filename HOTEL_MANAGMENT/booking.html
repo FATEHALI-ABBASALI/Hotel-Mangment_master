@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Room Booking</title>
+  <link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Room Booking</h2>
+    <form method="POST" action="booking.php">
+      <label>Full Name:</label>
+      <input type="text" name="name" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Room Type:</label>
+      <select name="room_type" id="room_type" onchange="setPrice()" required>
+        <option value="">-- Select Room --</option>
+        <option value="Delux">Delux = 10999</option>
+        <option value="Platinum">Platinum = 15999</option>
+      </select>
+
+      <label>No. of Guests:</label>
+      <select name="guests" required>
+        <option value="">-- Select Guests --</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label>Booking Date:</label>
+      <input type="date" name="date" required>
+
+      <label>Booking Time:</label>
+      <input type="time" name="time" required>
+
+      <label>Total Price (Ruppees):</label>
+      <input type="text" name="price" id="price" readonly required>
+
+      <button type="submit">Book Now</button>
+    </form>
+  </div>
+
+  <script>
+    function setPrice() {
+      const room = document.getElementById("room_type").value;
+      const priceInput = document.getElementById("price");
+
+      if (room === "Delux") {
+        priceInput.value = "10999";
+      } else if (room === "Platinum") {
+        priceInput.value = "15999";
+      } else {
+        priceInput.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
