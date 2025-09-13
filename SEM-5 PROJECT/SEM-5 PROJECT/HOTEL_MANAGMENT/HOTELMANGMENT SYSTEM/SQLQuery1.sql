@@ -1,0 +1,2 @@
+﻿ALTER TABLE FoodOrder
+ADD Price DECIMAL(10,2);

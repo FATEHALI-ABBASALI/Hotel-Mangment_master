@@ -1,0 +1,1 @@
+﻿ALTER TABLE FoodOrder ADD Status NVARCHAR(50) DEFAULT 'Pending';
