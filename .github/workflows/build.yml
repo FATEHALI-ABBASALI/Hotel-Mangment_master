@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: windows-latest
 
     steps:
       - name: Checkout Code
@@ -17,12 +17,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build Solution
-        working-directory: "C:/SEM-5 PROJECT/HOTEL_MANAGMENT/HOTELMANGMENT SYSTEM"
-        run: |
-          dotnet build "HOTELMANGMENT SYSTEM.sln" --configuration Release
+        run: dotnet build "HOTELMANGMENT SYSTEM.sln" --configuration Release
+        working-directory: "HOTELMANGMENT SYSTEM"
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: HotelManagement-Build
-          path: "C:/SEM-5 PROJECT/HOTEL_MANAGMENT/HOTELMANGMENT SYSTEM/HOTELMANGMENT SYSTEM/bin/Release/**"
+          path: "HOTELMANGMENT SYSTEM/bin/Release/**"
