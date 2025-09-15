@@ -17,10 +17,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build Solution
+        working-directory: "SEM-5 PROJECT/SEM-5 PROJECT/HOTEL_MANAGMENT"
         run: dotnet build "HOTELMANGMENT SYSTEM.sln" --configuration Release
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: HotelManagement-Build
-          path: "bin/Release/**"
+          path: "SEM-5 PROJECT/SEM-5 PROJECT/HOTEL_MANAGMENT/bin/Release/**"
