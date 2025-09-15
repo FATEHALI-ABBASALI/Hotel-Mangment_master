@@ -1,12 +1,11 @@
 name: Build Hotel Management System
 
-# Trigger manually
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: self-hosted  # offline machine with .NET installed
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Code
@@ -15,7 +14,7 @@ jobs:
       - name: Set up .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'  # adjust if your project uses another version
+          dotnet-version: '8.0.x'
 
       - name: Build Solution
         working-directory: "C:/SEM-5 PROJECT/HOTEL_MANAGMENT/HOTELMANGMENT SYSTEM"
@@ -26,4 +25,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: HotelManagement-Build
-          path: "C:/SEM-5 PROJECT/HOTEL_MANAGMENT/HOTELMANGMENT SYSTEM/HOTELMANGMENT SYSTEM/bin/Release"
+          path: "C:/SEM-5 PROJECT/HOTEL_MANAGMENT/HOTELMANGMENT SYSTEM/HOTELMANGMENT SYSTEM/bin/Release/**"
