@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted   # or windows-latest if using GitHub-hosted
+    runs-on: self-hosted   # or windows-latest if you want GitHub-hosted
 
     steps:
       - name: Checkout Code
@@ -17,11 +17,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build Solution
-        working-directory: "HOTELMANGMENT SYSTEM"
         run: dotnet build "HOTELMANGMENT SYSTEM.sln" --configuration Release
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: HotelManagement-Build
-          path: "HOTELMANGMENT SYSTEM/bin/Release/**"
+          path: "bin/Release/**"
