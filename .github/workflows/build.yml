@@ -1,0 +1,29 @@
+name: Build Hotel Management System
+
+# Trigger manually
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted  # offline machine with .NET installed
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'  # adjust if your project uses another version
+
+      - name: Build Solution
+        working-directory: "C:/SEM-5 PROJECT/HOTEL_MANAGMENT/HOTELMANGMENT SYSTEM"
+        run: |
+          dotnet build "HOTELMANGMENT SYSTEM.sln" --configuration Release
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: HotelManagement-Build
+          path: "C:/SEM-5 PROJECT/HOTEL_MANAGMENT/HOTELMANGMENT SYSTEM/HOTELMANGMENT SYSTEM/bin/Release"
